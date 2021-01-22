@@ -27,7 +27,7 @@ public String pigLatin(String sWord)
         {
             if (isVowel(sWord.charAt(x)))
             {
-                startAt = x;
+                startAt = x+1;
                 break;
             }
         }
