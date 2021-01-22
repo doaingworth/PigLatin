@@ -22,12 +22,32 @@ public String pigLatin(String sWord)
 //precondition: sWord is a valid String of length greater than 0
 //postcondition: returns the pig latin equivalent of sWord
 {
-	if(findFirstVowel(sWord) == -1)
-	{
-		return sWord + "ay";
-	}
-	else
-	{
-		return "ERROR!";
-	}
+        int startAt = 0;
+        for (int x = 1; x < sWord.length(); x++)
+        {
+            if (isVowel(sWord.charAt(x)))
+            {
+                startAt = x;
+                break;
+            }
+        }
+        String stringy = "";
+        for (int x = startAt; x < sWord.length(); x++)
+        {
+            stringy += sWord.substring(x,x+1);
+        }
+        stringy += sWord.substring(0,startAt);
+        stringy += "ay";
+        return stringy;
 }
+public static boolean isVowel(char ch)
+    {
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
